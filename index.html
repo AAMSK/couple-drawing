@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Couple Draw ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Welcome Screen -->
+    <section id="welcomeScreen" class="screen active">
+
+        <div class="logo">❤️</div>
+
+        <h1>Couple Draw</h1>
+
+        <p>Draw together, from anywhere.</p>
+
+        <button id="createRoomBtn" class="primary-btn">
+            Create Room
+        </button>
+
+        <button id="joinRoomBtn" class="secondary-btn">
+            Join Room
+        </button>
+
+    </section>
+
+
+    <!-- Create Room -->
+    <section id="createScreen" class="screen">
+
+        <div class="top-bar">
+            <button class="back-btn" onclick="showScreen('welcomeScreen')">
+                ←
+            </button>
+
+            <h2>Create Room</h2>
+        </div>
+
+        <div class="room-card">
+
+            <div class="heart">💕</div>
+
+            <p>Your Room Code</p>
+
+            <div id="roomCode" class="room-code">
+                ------
+            </div>
+
+            <button id="copyRoomBtn" class="secondary-btn">
+                Copy Code
+            </button>
+
+            <button id="startDrawingBtn" class="primary-btn">
+                Start Drawing
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Join Room -->
+    <section id="joinScreen" class="screen">
+
+        <div class="top-bar">
+            <button class="back-btn" onclick="showScreen('welcomeScreen')">
+                ←
+            </button>
+
+            <h2>Join Room</h2>
+        </div>
+
+        <div class="room-card">
+
+            <div class="heart">💗</div>
+
+            <p>Enter Room Code</p>
+
+            <input
+                id="roomInput"
+                type="text"
+                maxlength="6"
+                placeholder="ABC123"
+                autocomplete="off"
+            >
+
+            <button id="joinConfirmBtn" class="primary-btn">
+                Join Room
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Drawing Screen -->
+    <section id="drawingScreen" class="screen drawing-screen">
+
+        <header class="drawing-header">
+
+            <div>
+                <h2>Our Canvas ❤️</h2>
+                <span id="connectionStatus">
+                    🟢 Connected
+                </span>
+            </div>
+
+            <div class="room-small">
+                Room: <b id="activeRoom">------</b>
+            </div>
+
+        </header>
+
+
+        <main class="canvas-container">
+
+            <canvas id="drawingCanvas"></canvas>
+
+        </main>
+
+
+        <footer class="toolbar">
+
+            <button class="tool active" data-tool="brush">
+                🖌️
+            </button>
+
+            <button class="tool" data-tool="eraser">
+                🧽
+            </button>
+
+            <input
+                type="color"
+                id="colorPicker"
+                value="#ff4d6d"
+            >
+
+            <input
+                type="range"
+                id="brushSize"
+                min="1"
+                max="40"
+                value="5"
+            >
+
+            <button class="tool" id="undoBtn">
+                ↩️
+            </button>
+
+            <button class="tool" id="clearBtn">
+                🗑️
+            </button>
+
+        </footer>
+
+    </section>
+
+
+    
+    <script type="module" src="js/firebase.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/room.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
